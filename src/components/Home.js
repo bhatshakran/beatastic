@@ -1,11 +1,12 @@
 import React from "react";
+
 import Header from "./Header";
 
 const Home = () => {
-  console.log(process.env.REACT_APP_CLIENT_ID);
   const handleLogin = () => {
     window.location = `${process.env.REACT_APP_AUTHORIZE_URL}?client_id=${process.env.REACT_APP_CLIENT_ID}&redirect_uri=${process.env.REACT_APP_REDIRECT_URL}&response_type=token&show_dialog=true`;
   };
+
   return (
     <div className="login bg-slate-200 text-center h-screen">
       <Header />
