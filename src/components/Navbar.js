@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import logo from "../img/beatastic.svg";
+import { getUserAlbums } from "../redux/features/spotifyslice";
 
 const Navbar = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    // dispatch(getUserAlbums());
+  }, []);
+
   return (
     <div className="sidebar">
       {/* logo here */}

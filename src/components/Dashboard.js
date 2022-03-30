@@ -1,13 +1,14 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { getCategories } from "../redux/features/spotifyslice";
+import { getCategories, getNewReleases } from "../redux/features/spotifyslice";
 import Content from "./Content";
 import Navbar from "./Navbar";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    // fetch random albums
+    // fetch new releases
+    dispatch(getNewReleases());
     // fetch different categories
     // dispatch(getCategories());
     // fetch random shows

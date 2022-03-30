@@ -13,15 +13,22 @@
         font-family: Urbanist;
         src: url('./fonts/Urbanist-Bold.ttf') ;
     }
+    h1{
+        @apply text-6xl mt-8 mx-8
+    }
+    h2{
+        @apply text-4xl mt-12 mx-8
+
+    }
 
     h3{
         @apply text-3xl tracking-widest
     }
     ul{
-        @apply mt-8
+        @apply mt-8 w-full
     }
     ul>li{
-        @apply mt-3 text-lg font-urbanist hover:bg-hover cursor-pointer
+        @apply mt-3 text-lg font-urbanist hover:bg-hover cursor-pointer tracking-widest w-full
     }
     .sidebar{
         @apply flex flex-col items-center h-screen py-6 text-center w-60 md:w-1/4 xl:w-1/5 bg-lightblack
