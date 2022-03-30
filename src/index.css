@@ -26,4 +26,12 @@
     .sidebar{
         @apply flex flex-col items-center h-screen py-6 text-center w-60 md:w-1/4 xl:w-1/5 bg-lightblack
     }
+
+    .form-control{
+        @apply bg-transparent border border-white rounded-3xl w-2/3 focus:outline-none px-2 py-2 text-white font-urbanist focus:border-yellow-500
+    }
+
+    .btn{
+        @apply w-52 p-2 ml-8 bg-transparent border border-white rounded-3xl font-urbanist hover:bg-yellow-500 hover:border-0
+    }
 }

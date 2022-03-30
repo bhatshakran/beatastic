@@ -11,7 +11,7 @@ const Navbar = () => {
       {/* music section */}
       <section className="mt-16 music">
         <h3 className="text-gray-400 font-notulen">Music</h3>
-        <ul className="text-white">
+        <ul className="text-white ">
           <li>Discover</li>
           <li>Songs</li>
           <li>Albums</li>
