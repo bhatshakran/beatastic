@@ -8,7 +8,7 @@ import Redirect from "../components/Redirect";
 const AppRouter = () => {
   return (
     <Router>
-      <div className="app container mx-auto">
+      <div className=" app">
         <Routes>
           <Route path="/" element={<Home />} exact={true} />
           <Route path="/redirect" element={<Redirect />} />

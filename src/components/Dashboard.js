@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getCategories } from "../redux/features/spotifyslice";
+import Navbar from "./Navbar";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
@@ -11,7 +12,11 @@ const Dashboard = () => {
     // fetch random shows
   }, []);
 
-  return <div>Dashboard page</div>;
+  return (
+    <div className="">
+      <Navbar />
+    </div>
+  );
 };
 
 export default Dashboard;
