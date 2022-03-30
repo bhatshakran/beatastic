@@ -10,7 +10,6 @@ const Redirect = () => {
   useEffect(() => {
     try {
       if (_.isEmpty(location.hash)) {
-        console.log("empty");
         return navigate("/dashboard");
       }
       const access_token = getParamValues(location.hash);
