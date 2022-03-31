@@ -10,6 +10,7 @@ const Dashboard = () => {
     // fetch new releases
     dispatch(getNewReleases());
     // fetch different categories
+    dispatch(getCategories());
     // dispatch(getCategories());
     // fetch random shows
   }, []);

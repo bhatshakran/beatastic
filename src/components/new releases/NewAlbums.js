@@ -92,7 +92,10 @@ const NewAlbums = () => {
 
   return (
     <div className="flex flex-col items-end max-w-full gap-2 mx-8 mt-12 h-80">
-      <Link to="/dashboard" className="text-sm text-gray-400 font-urbanist">
+      <Link
+        to="/dashboard"
+        className="text-sm text-gray-400 font-urbanist hover:text-white"
+      >
         See All
       </Link>
       <div className="flex w-full gap-2 releases_container">
