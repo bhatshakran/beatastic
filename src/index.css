@@ -24,6 +24,10 @@
     h3{
         @apply text-3xl tracking-widest
     }
+
+    h4,h6{
+        @apply  text-sm font-urbanist
+    }
     ul{
         @apply mt-8 w-full
     }
@@ -40,5 +44,9 @@
 
     .btn{
         @apply w-52 p-2 ml-8 bg-transparent border border-white rounded-3xl font-urbanist hover:bg-yellow-500 hover:border-0
+    }
+
+    .slick-slide{
+        @apply mr-8 !important
     }
 }
