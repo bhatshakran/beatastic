@@ -1,6 +1,8 @@
 import _ from "lodash";
 import React, { useEffect, useLayoutEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import Card from "../reusable/Card";
 
 const NewAlbums = () => {
   let newalbums = useSelector((state) => state.apidata.newalbums);
@@ -89,33 +91,14 @@ const NewAlbums = () => {
   // return statement
 
   return (
-    <div className="max-w-full mx-8 mt-12 h-80">
-      <div className="flex gap-2 releases_container">
+    <div className="flex flex-col items-end max-w-full gap-2 mx-8 mt-12 h-80">
+      <Link to="/dashboard" className="text-sm text-gray-400 font-urbanist">
+        See All
+      </Link>
+      <div className="flex w-full gap-2 releases_container">
         {newalbums.map((album, id) => {
           if (id < slidesToShow) {
-            return (
-              <div key={album.id} className="card">
-                <img
-                  src={album.images[1].url}
-                  alt={album.name}
-                  className="rounded-md "
-                />
-                <h4 className="mt-8 capitalize font-urbanist">{album.name}</h4>
-                <h6 className="opacity-60">
-                  {album.artists.map((artist, id) => {
-                    if (album.artists.length >= 2) {
-                      if (id < album.artists.length - 1) {
-                        return `${artist.name}, `;
-                      } else {
-                        return artist.name;
-                      }
-                    } else {
-                      return artist.name;
-                    }
-                  })}
-                </h6>
-              </div>
-            );
+            return <Card album={album} key={album.id} />;
           }
         })}
       </div>
