@@ -46,7 +46,8 @@
         @apply w-52 p-2 ml-8 bg-transparent border border-white rounded-3xl font-urbanist hover:bg-yellow-500 hover:border-0
     }
 
-    .slick-slide{
-        @apply mr-8 !important
+
+    .card{
+       @apply flex flex-col w-auto h-auto p-4 text-white rounded-md lg:h-72 bg-card lg:w-52
     }
 }
