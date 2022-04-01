@@ -5,7 +5,7 @@ import Userbar from "./Userbar";
 
 const Content = () => {
   return (
-    <div className="w-2/3 h-auto pb-8 overflow-scroll text-white md:w-3/4 xl:w-4/5 bg-darkblack">
+    <div className="w-2/3 h-auto overflow-scroll text-white pb-14 md:w-3/4 xl:w-4/5 bg-darkblack">
       <Userbar />
       <h2 className=" font-notulen">Good Afternoon!</h2>
       <Categories />

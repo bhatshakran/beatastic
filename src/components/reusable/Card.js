@@ -3,7 +3,11 @@ import React from "react";
 const Card = ({ album }) => {
   return (
     <div className="card">
-      <img src={album.images[1].url} alt={album.name} className="rounded-md " />
+      <img
+        src={album.images[1].url}
+        alt={album.name}
+        className="rounded-md h-3/4 lg:h-auto"
+      />
       <h4 className="mt-8 capitalize font-urbanist">{album.name}</h4>
       <h6 className="opacity-60">
         {album.artists.map((artist, id) => {
