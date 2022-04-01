@@ -2,85 +2,15 @@ import _ from "lodash";
 import React, { useEffect, useLayoutEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import withSettings from "../HOC/withSettings";
 import Card from "../reusable/Card";
 
-const NewAlbums = () => {
+const NewAlbums = ({ slidesToShow, cardsrenderer }) => {
   let newalbums = useSelector((state) => state.apidata.newalbums);
-  let initialVal;
-  let releasesSettings = {
-    responsive: [
-      {
-        breakpoint: 2800,
-        settings: {
-          slidesToShow: 6,
-        },
-      },
-      {
-        breakpoint: 1300,
-        settings: {
-          slidesToShow: 4,
-        },
-      },
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-        },
-      },
-      // {
-      //   breakpoint: 600,
-      //   settings: {
-      //     slidesToShow: 1,
-      //   },
-      // },
-    ],
-  };
-
-  // Set initial no of slide
-  (() => {
-    let { innerWidth: width } = window;
-    const { responsive } = releasesSettings;
-
-    if (width < responsive[0].breakpoint && width > responsive[1].breakpoint) {
-      initialVal = responsive[0].settings.slidesToShow;
-    } else if (
-      width < responsive[1].breakpoint &&
-      width > responsive[2].breakpoint
-    ) {
-      initialVal = responsive[1].settings.slidesToShow;
-    } else if (width < responsive[2].breakpoint) {
-      initialVal = responsive[2].settings.slidesToShow;
-    } else {
-      initialVal = 6;
-    }
-  })();
-
-  // slidesto show state value
-
-  let [slidesToShow, setSlides] = useState(initialVal);
-
-  // album cards renderer function
-  const albumcardsrenderer = () => {
-    let { innerWidth: width } = window;
-    const { responsive } = releasesSettings;
-    if (width < responsive[0].breakpoint && width > responsive[1].breakpoint) {
-      setSlides(responsive[0].settings.slidesToShow);
-    } else if (
-      width < responsive[1].breakpoint &&
-      width > responsive[2].breakpoint
-    ) {
-      setSlides(responsive[1].settings.slidesToShow);
-    } else if (width < responsive[2].breakpoint) {
-      setSlides(responsive[2].settings.slidesToShow);
-    } else {
-      setSlides(6);
-    }
-  };
-
   // use layout effect
 
   useLayoutEffect(() => {
-    const debouncedrenderer = _.debounce(albumcardsrenderer, 100);
+    const debouncedrenderer = _.debounce(cardsrenderer, 100);
     window.addEventListener("resize", debouncedrenderer);
     // Cleanup
     return (_) => {
@@ -109,4 +39,4 @@ const NewAlbums = () => {
   );
 };
 
-export default NewAlbums;
+export default withSettings(NewAlbums);
