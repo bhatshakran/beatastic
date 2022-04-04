@@ -77,6 +77,9 @@ export const spotifyslice = createSlice({
       state.loading = false;
       state.newalbums = action.payload;
     },
+    [initiateSearch.pending]: (state, action) => {
+      state.loading = true;
+    },
     [initiateSearch.fulfilled]: (state, action) => {
       state.loading = false;
       state.searchResults = action.payload;

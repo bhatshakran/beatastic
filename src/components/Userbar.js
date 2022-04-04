@@ -1,22 +1,32 @@
-import React, { useRef } from "react";
-import { useDispatch } from "react-redux";
+import _ from "lodash";
+import React, { useEffect, useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { initiateSearch } from "../redux/features/spotifyslice";
+import SearchResults from "./SearchResults";
 
 const Userbar = () => {
-  const queryValue = useRef();
+  const searchInput = useRef();
   const dispatch = useDispatch();
+  let [fetchedResults, setFetchedResults] = useState(false);
+  let searchdata = useSelector((state) => state.apidata.searchResults);
 
   const searchQuery = () => {
-    const val = queryValue.current.value;
+    const val = searchInput.current.value;
     // search for the query
     dispatch(initiateSearch(val));
   };
+
+  useEffect(() => {
+    if (_.size(searchdata)) {
+      setFetchedResults(true);
+    } else setFetchedResults(false);
+  }, [searchdata]);
 
   return (
     <div className="flex mx-8 mt-8">
       {/* search bar */}
       <input
-        ref={queryValue}
+        ref={searchInput}
         type="text"
         name="search"
         id="search"
@@ -26,6 +36,8 @@ const Userbar = () => {
       <button className="btn" onClick={searchQuery}>
         Search
       </button>
+
+      {fetchedResults && <SearchResults data={searchdata} />}
     </div>
   );
 };
