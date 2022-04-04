@@ -40,6 +40,23 @@ export const getNewReleases = createAsyncThunk(
   }
 );
 
+
+export const initiateSearch = createAsyncThunk(
+  "spotify-api/search",
+  async (val) => {
+    try {
+      const res = await SpotifyClient(
+        `/search/?query=${encodeURIComponent(val)}&type=album,playlist,artist`
+      );
+
+      return res.data;
+    } catch (err) {
+      console.log(err);
+      return err;
+    }
+  }
+);
+
 export const spotifyslice = createSlice({
   name: "spotifyslice",
   initialState: {
@@ -48,6 +65,7 @@ export const spotifyslice = createSlice({
     shows: [],
     categories: [],
     newalbums: [],
+    searchResults: {},
   },
   reducers: {},
   extraReducers: {
@@ -58,6 +76,10 @@ export const spotifyslice = createSlice({
     [getNewReleases.fulfilled]: (state, action) => {
       state.loading = false;
       state.newalbums = action.payload;
+    },
+    [initiateSearch.fulfilled]: (state, action) => {
+      state.loading = false;
+      state.searchResults = action.payload;
     },
   },
 });
