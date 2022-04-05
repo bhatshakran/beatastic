@@ -6,6 +6,7 @@ import Dashboard from "../components/Dashboard";
 import Home from "../components/Home";
 import Navbar from "../components/Navbar";
 import Notfound from "../components/Notfound";
+import Playlist from "../components/Playlist";
 import Redirect from "../components/Redirect";
 
 const AppRouter = () => {
@@ -19,6 +20,7 @@ const AppRouter = () => {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/artists/:slug" element={<Artist />} />
           <Route path="/albums/:slug" element={<Album />} />
+          <Route path="/playlists/:slug" element={<Playlist />} />
           <Route path="*" element={<Notfound />} />
         </Routes>
       </div>

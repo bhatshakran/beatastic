@@ -33,10 +33,10 @@ const SearchResults = ({ data }) => {
       <div className="playlists">
         <h3>Playlists</h3>
         <ul className="cursor-pointer">
-          {data.albums.items.map((playlist) => {
+          {data.playlists.items.map((playlist) => {
             return (
               <li className="text-xs text-white" key={playlist.id}>
-                {playlist.name}
+                <Link to={`/playlists/${playlist.id}`}> {playlist.name}</Link>
               </li>
             );
           })}
