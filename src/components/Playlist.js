@@ -1,3 +1,4 @@
+import _ from "lodash";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
@@ -28,10 +29,10 @@ const Playlist = () => {
   } else
     return (
       <div className="flex flex-col items-center w-full px-12 py-12 overflow-y-scroll bg-darkblack">
-        <div className="rounded-full ">
+        <div className="text-white rounded-full">
           <img
-            src={playlist.images[0].url}
-            alt=""
+            src={_.size(playlist.images) > 0 ? playlist.images[0].url : ""}
+            alt={playlist.name}
             className="w-48 h-48 rounded-full"
           />
         </div>
