@@ -41,19 +41,22 @@ const Artist = () => {
         </div>
         <div className="flex flex-wrap gap-8 mt-16 text-white">
           <h5 className="text-2xl opacity-80">
-            Popularity: {artist.popularity}
+            Popularity: <span className="opacity-60"> {artist.popularity}</span>
           </h5>
           <h5 className="text-2xl opacity-80">
-            Followers: {artist.followers.total}
+            Followers:{" "}
+            <span className="opacity-60"> {artist.followers.total}</span>
           </h5>
-
-          {artist.genres.map((genre, idx) => {
-            return (
-              <h5 className="text-2xl capitalize opacity-80" key={idx}>
-                {genre}
-              </h5>
-            );
-          })}
+          <div className="flex flex-row flex-wrap gap-4">
+            <h5 className="text-2xl opacity-80">Genres: </h5>
+            {artist.genres.map((genre, idx) => {
+              return (
+                <h5 className="text-2xl capitalize opacity-60" key={idx}>
+                  {genre}
+                </h5>
+              );
+            })}
+          </div>
         </div>
       </div>
     );
