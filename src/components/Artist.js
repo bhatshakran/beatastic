@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
-import { getArtistById } from "../redux/features/spotifyslice";
+import { getArtistById } from "../redux/features/artistslice";
 
 const Artist = () => {
   const location = useLocation();
   const dispatch = useDispatch();
-  const artist = useSelector((state) => state.apidata.artist);
-  const loading = useSelector((state) => state.apidata.loading);
-  const [mounted, setMounted] = useState(true);
+  let artist = useSelector((state) => state.artistdata.artist);
+  let loading = useSelector((state) => state.artistdata.loading);
+  let [mounted, setMounted] = useState(true);
 
   useEffect(() => {
     if (mounted) {

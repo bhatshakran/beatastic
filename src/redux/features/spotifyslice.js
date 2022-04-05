@@ -57,18 +57,7 @@ export const initiateSearch = createAsyncThunk(
   }
 );
 
-export const getArtistById = createAsyncThunk(
-  "spotify-api/getartist",
-  async (id) => {
-    try {
-      const res = await SpotifyClient(`/artists/${id}`);
-      return res.data;
-    } catch (err) {
-      console.log(err);
-      return err;
-    }
-  }
-);
+
 
 export const spotifyslice = createSlice({
   name: "spotifyslice",
@@ -79,7 +68,6 @@ export const spotifyslice = createSlice({
     categories: [],
     newalbums: [],
     searchResults: {},
-    artist: {},
   },
   reducers: {},
   extraReducers: {
@@ -97,13 +85,6 @@ export const spotifyslice = createSlice({
     [initiateSearch.fulfilled]: (state, action) => {
       state.loading = false;
       state.searchResults = action.payload;
-    },
-    [getArtistById.pending]: (state, action) => {
-      state.loading = true;
-    },
-    [getArtistById.fulfilled]: (state, action) => {
-      state.loading = false;
-      state.artist = action.payload;
     },
   },
 });
