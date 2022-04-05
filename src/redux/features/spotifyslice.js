@@ -98,6 +98,9 @@ export const spotifyslice = createSlice({
       state.loading = false;
       state.searchResults = action.payload;
     },
+    [getArtistById.pending]: (state, action) => {
+      state.loading = true;
+    },
     [getArtistById.fulfilled]: (state, action) => {
       state.loading = false;
       state.artist = action.payload;
