@@ -1,11 +1,11 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { SpotifyClient } from "../../utils/axios";
 
-export const getArtistById = createAsyncThunk(
-  "spotify-api/getartist",
+export const getAlbumById = createAsyncThunk(
+  "spotify-api/getalbum",
   async (id) => {
     try {
-      const res = await SpotifyClient(`/artists/${id}`);
+      const res = await SpotifyClient(`/albums/${id}`);
       return res.data;
     } catch (err) {
       console.log(err);
@@ -14,24 +14,22 @@ export const getArtistById = createAsyncThunk(
   }
 );
 
-
-
-export const artistslice = createSlice({
-  name: "artistslice",
+export const albumslice = createSlice({
+  name: "albumslice",
   initialState: {
     loading: true,
     album: {},
   },
   reducers: {},
   extraReducers: {
-    [getArtistById.pending]: (state, action) => {
+    [getAlbumById.pending]: (state, action) => {
       state.loading = true;
     },
-    [getArtistById.fulfilled]: (state, action) => {
+    [getAlbumById.fulfilled]: (state, action) => {
       state.loading = false;
-      state.artist = action.payload;
+      state.album = action.payload;
     },
   },
 });
 
-export default artistslice.reducer;
+export default albumslice.reducer;

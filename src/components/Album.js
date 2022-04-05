@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
-import { getAlbumById } from "../redux/features/artistslice";
+import { getAlbumById } from "../redux/features/albumslice";
 
 const Album = () => {
   const location = useLocation();
   const dispatch = useDispatch();
-  //   let al = useSelector((state) => state.artistdata.artist);
-  let loading = useSelector((state) => state.artistdata.loading);
+  let album = useSelector((state) => state.albumdata.album);
+  let loading = useSelector((state) => state.albumdata.loading);
   let [mounted, setMounted] = useState(true);
 
   useEffect(() => {
@@ -22,42 +22,51 @@ const Album = () => {
 
     return () => setMounted(false);
   }, []);
+  console.log(loading);
 
   if (loading) {
     return <div>Loading...</div>;
   } else
     return (
-      <div className="flex flex-col items-center w-full px-12 py-12 bg-darkblack">
-        {/* <div className="rounded-full ">
+      <div className="flex flex-col items-center w-full px-12 py-12 overflow-y-scroll bg-darkblack">
+        <div className="rounded-full ">
           <img
-            src={artist.images[0].url}
+            src={album.images[0].url}
             alt=""
             className="w-48 h-48 rounded-full"
           />
         </div>
         <div className="flex flex-col items-center justify-center w-full mt-16 text-white gap-y-2 font-urbanist">
-          <h3 className="">{artist.name}</h3>
-          <h5 className="text-2xl capitalize opacity-60">{artist.type}</h5>
+          <h3 className="">{album.name}</h3>
+          <h5 className="text-2xl capitalize opacity-60">{album.type}</h5>
         </div>
         <div className="flex flex-wrap gap-8 mt-16 text-white">
           <h5 className="text-2xl opacity-80">
-            Popularity: <span className="opacity-60"> {artist.popularity}</span>
+            Tracks:{" "}
+            <span className="opacity-60"> {album.tracks.items.length}</span>
           </h5>
           <h5 className="text-2xl opacity-80">
-            Followers:{" "}
-            <span className="opacity-60"> {artist.followers.total}</span>
+            Label: <span className="opacity-60"> {album.label}</span>
           </h5>
+          <h5 className="text-2xl opacity-80">
+            Popularity: <span className="opacity-60"> {album.popularity}</span>
+          </h5>
+          <h5 className="text-2xl opacity-80">
+            Release Date:{" "}
+            <span className="opacity-60"> {album.release_date}</span>
+          </h5>
+
           <div className="flex flex-row flex-wrap gap-4">
-            <h5 className="text-2xl opacity-80">Genres: </h5>
-            {artist.genres.map((genre, idx) => {
+            <h5 className="text-2xl opacity-80">Artists: </h5>
+            {album.artists.map((artist, idx) => {
               return (
                 <h5 className="text-2xl capitalize opacity-60" key={idx}>
-                  {genre}
+                  {artist.name}
                 </h5>
               );
             })}
           </div>
-        </div> */}
+        </div>
       </div>
     );
 };
