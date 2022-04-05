@@ -12,7 +12,7 @@ const SearchResults = ({ data }) => {
           {data.albums.items.map((album) => {
             return (
               <li className="text-xs text-white" key={album.id}>
-                {album.name}
+                <Link to={`/albums/${album.id}`}> {album.name}</Link>
               </li>
             );
           })}

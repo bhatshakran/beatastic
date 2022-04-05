@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Album from "../components/Album";
 import Artist from "../components/Artist";
 import Dashboard from "../components/Dashboard";
 import Home from "../components/Home";
@@ -17,6 +18,7 @@ const AppRouter = () => {
           <Route path="/redirect" element={<Redirect />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/artists/:slug" element={<Artist />} />
+          <Route path="/albums/:slug" element={<Album />} />
           <Route path="*" element={<Notfound />} />
         </Routes>
       </div>
