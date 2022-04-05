@@ -1,6 +1,7 @@
 import _ from "lodash";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const SearchResults = ({ data }) => {
   return (
@@ -23,7 +24,7 @@ const SearchResults = ({ data }) => {
           {data.artists.items.map((artist) => {
             return (
               <li className="text-xs text-white" key={artist.id}>
-                {artist.name}
+                <Link to={`/artists/${artist.id}`}> {artist.name}</Link>
               </li>
             );
           })}
