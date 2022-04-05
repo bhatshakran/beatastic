@@ -21,7 +21,7 @@ const NewAlbums = ({ slidesToShow, cardsrenderer }) => {
   // return statement
 
   return (
-    <div className="flex flex-col items-end max-w-full gap-2 mx-8 mt-12 h-80 lg:h-72">
+    <div className="flex flex-col items-end gap-2 mx-8 mt-12 h-80 lg:h-72">
       <Link
         to="/dashboard"
         className="text-sm text-gray-400 font-urbanist hover:text-white"

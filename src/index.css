@@ -35,7 +35,7 @@
         @apply mt-3 text-lg font-urbanist hover:bg-hover cursor-pointer tracking-widest w-full
     }
     .sidebar{
-        @apply flex flex-col items-center h-screen py-6 text-center w-60 md:w-1/4 xl:w-1/5 bg-lightblack
+        @apply flex flex-col items-center h-screen py-6 text-center w-60 md:w-1/4  bg-lightblack
     }
 
     .form-control{

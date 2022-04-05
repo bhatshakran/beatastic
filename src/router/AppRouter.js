@@ -3,13 +3,15 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Artist from "../components/Artist";
 import Dashboard from "../components/Dashboard";
 import Home from "../components/Home";
+import Navbar from "../components/Navbar";
 import Notfound from "../components/Notfound";
 import Redirect from "../components/Redirect";
 
 const AppRouter = () => {
   return (
     <Router>
-      <div className=" app">
+      <div className="flex flex-row w-full h-screen app">
+        <Navbar />
         <Routes>
           <Route path="/" element={<Home />} exact={true} />
           <Route path="/redirect" element={<Redirect />} />

@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getCategories, getNewReleases } from "../redux/features/spotifyslice";
 import Content from "./Content";
-import Navbar from "./Navbar";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
@@ -16,8 +15,7 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <div className="flex flex-row h-screen">
-      <Navbar />
+    <div className="flex flex-row w-full h-screen overflow-x-hidden bg-red-400">
       <Content />
     </div>
   );

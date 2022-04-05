@@ -11,7 +11,6 @@ const Artist = () => {
     const url = location.pathname;
     const urlArr = url.split("/");
     const id = urlArr[urlArr.length - 1];
-    console.log(id);
 
     // get artist by id
     dispatch(getArtistById(id));
