@@ -41,23 +41,27 @@ const Album = () => {
           <h5 className="text-2xl capitalize opacity-60">{album.type}</h5>
         </div>
         <div className="flex flex-wrap gap-8 mt-16 text-white">
-          <h5 className="text-2xl opacity-80">
+          <h5 className="text-2xl text-yellow-400 opacity-80">
             Tracks:{" "}
-            <span className="opacity-60"> {album.tracks.items.length}</span>
+            <span className="text-white opacity-60">
+              {" "}
+              {album.tracks.items.length}
+            </span>
           </h5>
-          <h5 className="text-2xl opacity-80">
-            Label: <span className="opacity-60"> {album.label}</span>
+          <h5 className="text-2xl text-yellow-400 opacity-80">
+            Label: <span className="text-white opacity-60"> {album.label}</span>
           </h5>
-          <h5 className="text-2xl opacity-80">
-            Popularity: <span className="opacity-60"> {album.popularity}</span>
+          <h5 className="text-2xl text-yellow-400 opacity-80">
+            Popularity:{" "}
+            <span className="text-white opacity-60"> {album.popularity}</span>
           </h5>
-          <h5 className="text-2xl opacity-80">
+          <h5 className="text-2xl text-yellow-400 opacity-80">
             Release Date:{" "}
-            <span className="opacity-60"> {album.release_date}</span>
+            <span className="text-white opacity-60"> {album.release_date}</span>
           </h5>
 
           <div className="flex flex-row flex-wrap gap-4">
-            <h5 className="text-2xl opacity-80">Artists: </h5>
+            <h5 className="text-2xl text-yellow-400 opacity-80">Artists: </h5>
             {album.artists.map((artist, idx) => {
               return (
                 <h5 className="text-2xl capitalize opacity-60" key={idx}>

@@ -32,7 +32,7 @@
         @apply mt-8 w-full
     }
     ul>li{
-        @apply mt-3 text-lg font-urbanist hover:bg-hover cursor-pointer tracking-widest w-full
+        @apply mt-3 text-lg font-urbanist hover:text-yellow-400 cursor-pointer tracking-widest w-full
     }
     .sidebar{
         @apply flex flex-col items-center h-screen py-6 text-center w-60 md:w-1/4  bg-lightblack

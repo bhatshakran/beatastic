@@ -68,7 +68,7 @@ const Navbar = () => {
           </div>
           {/* music section */}{" "}
           <section className="mt-16 music">
-            <h3 className="text-gray-400 font-notulen">Music</h3>
+            <h3 className="text-yellow-400 font-notulen">Music</h3>
             <ul className="text-white ">
               <li>Discover</li>
               <li>Songs</li>
@@ -78,7 +78,7 @@ const Navbar = () => {
           </section>
           {/* playlist section */}
           <section className="mt-16 playlists">
-            <h3 className="text-gray-400 font-notulen">Playlists</h3>
+            <h3 className="text-yellow-400 font-notulen">Playlists</h3>
             <ul className="text-white">
               <li>Vibes</li>
               <li>Drill</li>

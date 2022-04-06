@@ -11,7 +11,7 @@ const SearchResults = ({ data, close }) => {
   return (
     <div className="srch_results">
       <div
-        className="absolute text-2xl cursor-pointer right-5"
+        className="absolute text-2xl cursor-pointer right-5 hover:text-yellow-400"
         onClick={closeSearchResults}
       >
         <AiOutlineClose />
