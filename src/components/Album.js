@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 import { getAlbumById } from "../redux/features/albumslice";
+import BgImage from "./reusable/BgImage";
 
 const Album = () => {
   const location = useLocation();
@@ -23,24 +24,12 @@ const Album = () => {
     return () => setMounted(false);
   }, []);
 
-  const bgstyle = {
-    backgroundImage: `url(${album.images[0].url})`,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    position: "absolute",
-    top: 0,
-    zIndex: 0,
-    width: "100%",
-    height: "100%",
-    opacity: "20%",
-  };
-
   if (loading) {
     return <div>Loading...</div>;
   } else
     return (
       <div className="relative flex flex-col items-center w-full px-12 py-12 overflow-y-scroll bg-darkblack">
-        <div style={bgstyle}></div>
+        <BgImage entity={album} />
         <div className="rounded-full ">
           <img
             src={album.images[0].url}
