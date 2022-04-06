@@ -22,13 +22,25 @@ const Album = () => {
 
     return () => setMounted(false);
   }, []);
-  console.log(loading);
+
+  const bgstyle = {
+    backgroundImage: `url(${album.images[0].url})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    position: "absolute",
+    top: 0,
+    zIndex: 0,
+    width: "100%",
+    height: "100%",
+    opacity: "20%",
+  };
 
   if (loading) {
     return <div>Loading...</div>;
   } else
     return (
-      <div className="flex flex-col items-center w-full px-12 py-12 overflow-y-scroll bg-darkblack">
+      <div className="relative flex flex-col items-center w-full px-12 py-12 overflow-y-scroll bg-darkblack">
+        <div style={bgstyle}></div>
         <div className="rounded-full ">
           <img
             src={album.images[0].url}
