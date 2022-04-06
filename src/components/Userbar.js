@@ -16,6 +16,10 @@ const Userbar = () => {
     dispatch(initiateSearch(val));
   };
 
+  const close = () => {
+    setFetchedResults(false);
+  };
+
   useEffect(() => {
     if (_.size(searchdata)) {
       setFetchedResults(true);
@@ -37,7 +41,7 @@ const Userbar = () => {
         Search
       </button>
 
-      {fetchedResults && <SearchResults data={searchdata} />}
+      {fetchedResults && <SearchResults data={searchdata} close={close} />}
     </div>
   );
 };

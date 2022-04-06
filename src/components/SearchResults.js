@@ -1,11 +1,21 @@
 import _ from "lodash";
-import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import React from "react";
 import { Link } from "react-router-dom";
+import { AiOutlineClose } from "react-icons/ai";
 
-const SearchResults = ({ data }) => {
+const SearchResults = ({ data, close }) => {
+  const closeSearchResults = () => {
+    close();
+  };
+
   return (
     <div className="srch_results">
+      <div
+        className="absolute text-2xl cursor-pointer right-5"
+        onClick={closeSearchResults}
+      >
+        <AiOutlineClose />
+      </div>
       <div className="albums">
         <h3>Albums</h3>
         <ul className="cursor-pointer">
