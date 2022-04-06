@@ -1,10 +1,12 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { SpotifyClient } from "../../utils/axios";
+import { setAuthHeader } from "../../utils/functions";
 
 export const getCategories = createAsyncThunk(
   "spotify-api/getcat",
   async () => {
     try {
+      setAuthHeader();
       const res = await SpotifyClient("browse/categories");
       return res.data.categories.items;
     } catch (err) {
@@ -18,6 +20,8 @@ export const getUserAlbums = createAsyncThunk(
   "spotify-api/getuseralbums",
   async () => {
     try {
+      setAuthHeader();
+
       const res = await SpotifyClient("me/albums/contains");
       return res;
     } catch (err) {
@@ -31,6 +35,7 @@ export const getNewReleases = createAsyncThunk(
   "spotify-api/getnewreleases",
   async () => {
     try {
+      setAuthHeader();
       const res = await SpotifyClient("browse/new-releases");
       return res.data.albums.items;
     } catch (err) {
@@ -40,11 +45,12 @@ export const getNewReleases = createAsyncThunk(
   }
 );
 
-
 export const initiateSearch = createAsyncThunk(
   "spotify-api/search",
   async (val) => {
     try {
+      setAuthHeader();
+
       const res = await SpotifyClient(
         `/search/?query=${encodeURIComponent(val)}&type=album,playlist,artist`
       );

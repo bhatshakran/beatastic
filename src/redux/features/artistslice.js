@@ -1,10 +1,12 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { SpotifyClient } from "../../utils/axios";
+import { setAuthHeader } from "../../utils/functions";
 
 export const getArtistById = createAsyncThunk(
   "spotify-api/getartist",
   async (id) => {
     try {
+      setAuthHeader();
       const res = await SpotifyClient(`/artists/${id}`);
       return res.data;
     } catch (err) {
