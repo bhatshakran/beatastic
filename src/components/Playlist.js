@@ -45,17 +45,26 @@ const Playlist = () => {
           </h5>
         </div>
         <div className="flex flex-wrap gap-8 mt-16 text-white">
-          <h5 className="text-2xl opacity-80">
+          <h5 className="text-2xl text-yellow-400 opacity-80">
             Tracks:{" "}
-            <span className="opacity-60"> {playlist.tracks.items.length}</span>
+            <span className="text-white opacity-60">
+              {" "}
+              {playlist.tracks.items.length}
+            </span>
           </h5>
-          <h5 className="text-2xl opacity-80">
+          <h5 className="text-2xl text-yellow-400 opacity-80">
             Description:{" "}
-            <span className="opacity-60"> {playlist.description}</span>
+            <span className="text-white opacity-60">
+              {" "}
+              {playlist.description}
+            </span>
           </h5>
-          <h5 className="text-2xl opacity-80">
+          <h5 className="text-2xl text-yellow-400 opacity-80">
             Followers:{" "}
-            <span className="opacity-60"> {playlist.followers.total}</span>
+            <span className="text-white opacity-60">
+              {" "}
+              {playlist.followers.total}
+            </span>
           </h5>
         </div>
       </div>
