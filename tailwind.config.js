@@ -12,6 +12,9 @@ module.exports = {
         card: "#252525",
         hover: "#464646",
       },
+      screens: {
+        xs: "480px",
+      },
     },
   },
   plugins: [],

@@ -6,7 +6,7 @@ import Userbar from "./Userbar";
 
 const Content = () => {
   return (
-    <div className="w-full h-auto overflow-y-scroll text-white bg-darkblack pb-14">
+    <div className="w-full h-screen overflow-y-scroll text-white bg-darkblack pb-14">
       <Userbar />
       <h2 className=" font-notulen">Good Afternoon!</h2>
       <Categories />

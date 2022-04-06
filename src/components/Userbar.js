@@ -27,7 +27,7 @@ const Userbar = () => {
   }, [searchdata]);
 
   return (
-    <div className="flex mx-8 mt-8">
+    <div className="relative flex mx-8 mt-8">
       {/* search bar */}
       <input
         ref={searchInput}

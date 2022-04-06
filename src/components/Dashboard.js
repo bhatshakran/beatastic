@@ -15,7 +15,7 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <div className="flex flex-row w-full h-screen overflow-x-hidden bg-red-400">
+    <div className="flex flex-row w-full h-screen mx-0 overflow-hidden">
       <Content />
     </div>
   );

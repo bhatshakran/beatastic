@@ -24,15 +24,21 @@ const withSettings = (WrappedComponent) => {
           {
             breakpoint: 1024,
             settings: {
+              slidesToShow: 3,
+            },
+          },
+          {
+            breakpoint: 650,
+            settings: {
               slidesToShow: 2,
             },
           },
-          // {
-          //   breakpoint: 600,
-          //   settings: {
-          //     slidesToShow: 1,
-          //   },
-          // },
+          {
+            breakpoint: 480,
+            settings: {
+              slidesToShow: 1,
+            },
+          },
         ],
       };
       const { responsive } = this.releasesSettings;
@@ -46,8 +52,18 @@ const withSettings = (WrappedComponent) => {
         width > responsive[2].breakpoint
       ) {
         initialVal = responsive[1].settings.slidesToShow;
-      } else if (width < responsive[2].breakpoint) {
+      } else if (
+        width < responsive[2].breakpoint &&
+        width > responsive[3].breakpoint
+      ) {
         initialVal = responsive[2].settings.slidesToShow;
+      } else if (
+        width < responsive[3].breakpoint &&
+        width > responsive[4].breakpoint
+      ) {
+        initialVal = responsive[3].settings.slidesToShow;
+      } else if (width < responsive[4].breakpoint) {
+        initialVal = responsive[4].settings.slidesToShow;
       } else {
         initialVal = 6;
       }
@@ -71,8 +87,18 @@ const withSettings = (WrappedComponent) => {
         width > responsive[2].breakpoint
       ) {
         this.setState({ slidesToShow: responsive[1].settings.slidesToShow });
-      } else if (width < responsive[2].breakpoint) {
+      } else if (
+        width < responsive[2].breakpoint &&
+        width > responsive[3].breakpoint
+      ) {
         this.setState({ slidesToShow: responsive[2].settings.slidesToShow });
+      } else if (
+        width < responsive[3].breakpoint &&
+        width > responsive[4].breakpoint
+      ) {
+        this.setState({ slidesToShow: responsive[3].settings.slidesToShow });
+      } else if (width < responsive[4].breakpoint) {
+        this.setState({slidesToShow:responsive[4].settings.slidesToShow});
       } else {
         this.setState({ slidesToShow: 6 });
       }
